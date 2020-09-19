@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "build": "webpack --config ./webpack/config.dev.js",
-    "start": "webpack-dev-server --config ./webpack/config.dev.js --open"
+    "start": "webpack-dev-server --config ./webpack/config.dev.js --open",
+    "lint": "standardx ./src/**/*.ts --env jest --fix",
+    "link:check": "standardx ./src/**/*.ts --env jest"
   },
   "repository": {
     "type": "git",
@@ -24,12 +25,15 @@
   "homepage": "https://github.com/adrianlafond/zoom-navigation#readme",
   "devDependencies": {
     "@types/jest": "^26.0.14",
+    "@typescript-eslint/eslint-plugin": "^4.1.1",
+    "@typescript-eslint/parser": "^4.1.1",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^4.3.0",
     "html-webpack-plugin": "^4.4.1",
     "jest": "^26.4.2",
     "sass": "^1.26.11",
     "sass-loader": "^10.0.2",
+    "standardx": "^5.0.0",
     "style-loader": "^1.2.1",
     "ts-jest": "^26.3.0",
     "ts-loader": "^8.0.4",
@@ -37,5 +41,20 @@
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
+  },
+  "eslintConfig": {
+    "rules": {
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": "error"
+    },
+    "env": {
+      "browser": true
+    }
+  },
+  "standardx": {
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint/eslint-plugin"
+    ]
   }
 }

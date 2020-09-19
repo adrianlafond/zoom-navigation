@@ -1,7 +1,8 @@
-import { ZoomNavigation } from './zoom-navigation';
+import { ZoomNavigation } from './zoom-navigation'
 
-import './style/index.scss';
+import './style/index.scss'
 
 window.addEventListener('load', () => {
-  const zoom = new ZoomNavigation();
-});
+  // eslint-disable-next-line
+  const zoom = new ZoomNavigation()
+})
