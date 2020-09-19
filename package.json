@@ -1,0 +1,30 @@
+{
+  "name": "zoom-navigation",
+  "version": "0.1.0",
+  "description": "JavaScript zoom navigation engine",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config ./webpack/config.dev.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adrianlafond/zoom-navigation.git"
+  },
+  "keywords": [
+    "zoom",
+    "navigation"
+  ],
+  "author": "Adrian Lafond <mail@adrianlafond.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adrianlafond/zoom-navigation/issues"
+  },
+  "homepage": "https://github.com/adrianlafond/zoom-navigation#readme",
+  "devDependencies": {
+    "ts-loader": "^8.0.4",
+    "typescript": "^4.0.3",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12"
+  }
+}
