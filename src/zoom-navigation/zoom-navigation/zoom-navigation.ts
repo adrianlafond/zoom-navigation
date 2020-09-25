@@ -3,7 +3,10 @@ import { ZoomCanvas } from '../zoom-canvas'
 import './zoom-navigation.scss'
 
 export interface TextDocument {
-  text: string;
+  done: boolean;
+  value?: {
+    text: string;
+  }
 }
 
 export interface Documents {
@@ -11,19 +14,24 @@ export interface Documents {
 }
 
 export class ZoomNavigation {
-  constructor(private element: HTMLElement, private documents: Documents) {
+  private canvas: ZoomCanvas;
+
+  constructor(private rootElement: HTMLElement, private documents: Documents) {
+    this.canvas = new ZoomCanvas(rootElement);
     this.addDocument()
   }
 
   addDocument() {
     this.documents.next().then((doc: TextDocument) => {
-      const { text } = doc;
-      if (text) {
-        console.log(text);
+      const { done, value } = doc;
+      if (value) {
+        console.log(value.text);
       }
-      this.addDocument();
-    }).catch(() => {
-      console.log('-- done --');
+      if (!done) {
+        this.addDocument();
+      }
+    }).catch((error: Error) => {
+      throw error;
     });
   }
 }

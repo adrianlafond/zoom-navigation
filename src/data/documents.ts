@@ -11,14 +11,19 @@ export class Documents {
   }
 
   next() {
-    return new Promise((resolve: (doc: TextDocument) => void, reject: () => void) => {
+    return new Promise((resolve: (doc: TextDocument) => void) => {
       this.cursor += 1
       if (this.cursor < this.total) {
         resolve({
-          text: faker.lorem.paragraphs(Math.ceil(Math.random() * 12) + 1)
+          done: false,
+          value: {
+            text: faker.lorem.paragraphs(Math.ceil(Math.random() * 12) + 1)
+          }
         })
       } else {
-        reject()
+        resolve({
+          done: true
+        })
       }
     })
   }
