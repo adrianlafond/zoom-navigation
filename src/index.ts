@@ -5,5 +5,6 @@ window.addEventListener('load', () => {
   const documents = new Documents(100);
 
   // eslint-disable-next-line no-new
-  new ZoomNavigation(documents)
+  new ZoomNavigation(document.querySelector('main'), documents)
 })
+

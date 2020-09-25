@@ -9,16 +9,8 @@ export interface Documents {
 }
 
 export class ZoomNavigation {
-  constructor(private documents: Documents) {
-    this.printSomething()
+  constructor(private element: HTMLElement, private documents: Documents) {
     this.addDocument()
-  }
-
-  printSomething() {
-    const el: HTMLDivElement = document.createElement('p')
-    el.className = 'zoom-navigation'
-    el.textContent = 'ZOOM NAVIGATION'
-    document.body.appendChild(el)
   }
 
   addDocument() {
