@@ -1,4 +1,6 @@
-import './style/index.scss'
+import { ZoomCanvas } from '../zoom-canvas'
+
+import './zoom-navigation.scss'
 
 export interface TextDocument {
   text: string;

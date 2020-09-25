@@ -1,5 +1,5 @@
 import * as faker from 'faker'
-import { TextDocument } from '../zoom-navigation';
+import { TextDocument } from '../zoom-navigation'
 
 export class Documents {
   private cursor = 0;
@@ -12,7 +12,7 @@ export class Documents {
 
   next() {
     return new Promise((resolve: (doc: TextDocument) => void, reject: () => void) => {
-      this.cursor += 1;
+      this.cursor += 1
       if (this.cursor < this.total) {
         resolve({
           text: faker.lorem.paragraphs(Math.ceil(Math.random() * 12) + 1)
