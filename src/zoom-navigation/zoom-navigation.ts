@@ -1,28 +1,35 @@
 import './style/index.scss'
 
 export interface TextDocument {
-  done: boolean;
-  value: {
-    text: string | undefined;
-  }
+  text: string;
 }
 
 export interface Documents {
-  next: () => TextDocument
+  next: () => Promise<TextDocument>
 }
 
 export class ZoomNavigation {
-  constructor (private documents: Documents) {
+  constructor(private documents: Documents) {
     this.printSomething()
-    console.log(this.documents.next())
-    console.log(this.documents.next())
-    console.log(this.documents.next())
+    this.addDocument()
   }
 
-  printSomething () {
+  printSomething() {
     const el: HTMLDivElement = document.createElement('p')
     el.className = 'zoom-navigation'
     el.textContent = 'ZOOM NAVIGATION'
     document.body.appendChild(el)
+  }
+
+  addDocument() {
+    this.documents.next().then((doc: TextDocument) => {
+      const { text } = doc;
+      if (text) {
+        console.log(text);
+      }
+      this.addDocument();
+    }).catch(() => {
+      console.log('-- done --');
+    });
   }
 }

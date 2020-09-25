@@ -47,6 +47,14 @@
   "eslintConfig": {
     "rules": {
       "no-useless-constructor": "off",
+      "space-before-function-paren": [
+        "error",
+        {
+          "anonymous": "always",
+          "named": "never",
+          "asyncArrow": "always"
+        }
+      ],
       "no-unused-vars": "off",
       "@typescript-eslint/no-unused-vars": "error"
     },
