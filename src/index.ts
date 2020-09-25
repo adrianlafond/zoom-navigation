@@ -1,8 +1,9 @@
+import { Documents } from './data';
 import { ZoomNavigation } from './zoom-navigation'
 
-import './style/index.scss'
-
 window.addEventListener('load', () => {
+  const documents = new Documents(100);
+
   // eslint-disable-next-line no-new
-  new ZoomNavigation()
+  new ZoomNavigation(documents)
 })

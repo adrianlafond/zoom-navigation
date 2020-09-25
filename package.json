@@ -24,11 +24,13 @@
   },
   "homepage": "https://github.com/adrianlafond/zoom-navigation#readme",
   "devDependencies": {
+    "@types/faker": "^5.1.2",
     "@types/jest": "^26.0.14",
     "@typescript-eslint/eslint-plugin": "^4.1.1",
     "@typescript-eslint/parser": "^4.1.1",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^4.3.0",
+    "faker": "^5.1.0",
     "html-webpack-plugin": "^4.4.1",
     "jest": "^26.4.2",
     "sass": "^1.26.11",
@@ -44,6 +46,7 @@
   },
   "eslintConfig": {
     "rules": {
+      "no-useless-constructor": "off",
       "no-unused-vars": "off",
       "@typescript-eslint/no-unused-vars": "error"
     },
