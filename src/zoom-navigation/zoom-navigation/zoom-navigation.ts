@@ -16,6 +16,8 @@ export interface Documents {
 export class ZoomNavigation {
   private canvas: ZoomCanvas;
 
+  private textAdded = false;
+
   constructor(private rootElement: HTMLElement, private documents: Documents) {
     this.canvas = new ZoomCanvas(rootElement)
     this.addDocument()
@@ -26,6 +28,10 @@ export class ZoomNavigation {
       const { done, value } = doc
       if (value) {
         // console.log(value.text);
+        if (!this.textAdded) {
+          this.canvas.renderTextDocument(value.text)
+          this.textAdded = true
+        }
       }
       if (!done) {
         this.addDocument()
