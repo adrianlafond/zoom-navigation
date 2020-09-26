@@ -6,8 +6,8 @@
   "scripts": {
     "test": "jest",
     "start": "webpack-dev-server --config ./webpack/config.dev.js --open",
-    "lint": "standardx ./src/**/*.ts --env jest --fix",
-    "lint:check": "standardx ./src/**/*.ts --env jest"
+    "lint": "standardx \"./src/**/*.ts\" --env jest --fix",
+    "lint:check": "standardx \"./src/**/*ts\" --env jest"
   },
   "repository": {
     "type": "git",

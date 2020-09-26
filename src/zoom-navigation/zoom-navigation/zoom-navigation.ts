@@ -17,21 +17,21 @@ export class ZoomNavigation {
   private canvas: ZoomCanvas;
 
   constructor(private rootElement: HTMLElement, private documents: Documents) {
-    this.canvas = new ZoomCanvas(rootElement);
+    this.canvas = new ZoomCanvas(rootElement)
     this.addDocument()
   }
 
   addDocument() {
     this.documents.next().then((doc: TextDocument) => {
-      const { done, value } = doc;
+      const { done, value } = doc
       if (value) {
-        console.log(value.text);
+        // console.log(value.text);
       }
       if (!done) {
-        this.addDocument();
+        this.addDocument()
       }
     }).catch((error: Error) => {
-      throw error;
-    });
+      throw error
+    })
   }
 }

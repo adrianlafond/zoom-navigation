@@ -1,1 +1,1 @@
-export * from './zoom-navigation';
+export * from './zoom-navigation'

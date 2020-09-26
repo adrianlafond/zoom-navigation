@@ -1,1 +1,1 @@
-export * from './zoom-canvas';
+export * from './zoom-canvas'
