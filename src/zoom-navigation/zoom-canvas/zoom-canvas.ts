@@ -6,20 +6,24 @@ export class ZoomCanvas {
 
   private zoomLevel = 1.0;
   private resizeObserver: ResizeObserver;
+
   private text: string;
+  private fontSize = 16 * 2
+  private lineHeight = this.fontSize * 1.5
 
   constructor(private element: HTMLElement) {
     this.canvas = this.createCanvas()
     this.context = this.canvas.getContext('2d')
     this.initializeResizeObserver()
-    this.zoom(0.5)
+    this.zoom(0.2)
+    console.log('???');
   }
 
   renderTextDocument(text: string) {
+    console.log('renderTextDocument()');
     this.text = text
-    this.context.font = '24px Menlo,monospace'
-    this.context.fillStyle = '#ffffff'
-    console.log(text);
+    this.context.font = `${this.fontSize}px Menlo,monospace`
+    this.context.fillStyle = '#222222'
 
     const words = text.split(' ')
     let printLine = ''
@@ -29,18 +33,18 @@ export class ZoomCanvas {
     const print = () => {
       testLine = ''
       this.context.fillText(printLine.trim(), 100, y)
-      y += 36
+      y += this.lineHeight
     }
 
     while (words.length) {
       const word = words.shift()
       printLine = testLine
-      if (this.context.measureText(testLine).width < 360) {
+      if (this.context.measureText(testLine).width < 800) {
         testLine += word + ' '
         if (word.endsWith('\n')) {
           printLine = testLine
           print()
-          y += 36
+          y += this.lineHeight
         }
       } else {
         words.unshift(word)
