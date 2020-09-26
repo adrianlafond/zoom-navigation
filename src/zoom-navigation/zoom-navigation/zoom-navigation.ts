@@ -21,7 +21,7 @@ export class ZoomNavigation {
     this.addDocument()
   }
 
-  addDocument() {
+  private addDocument() {
     this.documents.next().then((doc: TextDocument) => {
       const { done, value } = doc
       if (value) {
@@ -33,5 +33,9 @@ export class ZoomNavigation {
     }).catch((error: Error) => {
       throw error
     })
+  }
+
+  destroy() {
+    this.canvas.destroy()
   }
 }
