@@ -40,6 +40,7 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: 'zoom navigation',
+      template: './src/index.html',
     }),
   ],
   resolve: {

@@ -3,10 +3,18 @@
     "outDir": "./dist/",
     "sourceMap": true,
     "noImplicitAny": true,
+    "lib": ["dom", "ES6"],
     "module": "es6",
+    "moduleResolution": "node",
     "target": "es5",
     "jsx": "react",
     "allowJs": true,
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "types": [
+      "resize-observer-browser"
+    ]
   },
   "include": ["./src/*"]
 }
